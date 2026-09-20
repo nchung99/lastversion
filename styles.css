@@ -172,3 +172,167 @@ body{background:#f3f5f8}.portal-shell{max-width:1480px;margin:24px auto 58px;pad
   color: inherit;
   text-decoration: none;
 }
+/* ========================================
+   FANTASY PARTICLES
+======================================== */
+
+#fantasy-particles {
+  position: fixed;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+  pointer-events: none;
+
+  z-index: 9999;
+}
+
+
+/* PARTICLE CHUNG */
+
+.fantasy-particle {
+  position: absolute;
+  top: -20px;
+
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+
+/* =========================
+   CÁNH HOA
+========================= */
+
+.petal {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(220, 38, 38, .95),
+      rgba(244, 63, 94, .8)
+    );
+
+  border-radius: 70% 20% 70% 20%;
+
+  box-shadow:
+    0 2px 4px rgba(120, 0, 20, .18),
+    0 0 7px rgba(244, 63, 94, .35);
+
+  animation: petalFall linear forwards;
+}
+
+
+@keyframes petalFall {
+
+  0% {
+    transform:
+      translate3d(0, -5vh, 0)
+      rotate(0deg);
+
+    opacity: 0;
+  }
+
+  10% {
+    opacity: .8;
+  }
+
+  45% {
+    transform:
+      translate3d(
+        calc(var(--drift) * .45),
+        45vh,
+        0
+      )
+      rotate(calc(var(--rotate) * .45));
+  }
+
+  75% {
+    transform:
+      translate3d(
+        calc(var(--drift) * -.2),
+        75vh,
+        0
+      )
+      rotate(calc(var(--rotate) * .75));
+  }
+
+  100% {
+    transform:
+      translate3d(
+        var(--drift),
+        110vh,
+        0
+      )
+      rotate(var(--rotate));
+
+    opacity: 0;
+  }
+}
+
+
+/* =========================
+   HẠT SÁNG
+========================= */
+
+.sparkle {
+  border-radius: 50%;
+
+  background: #f59e0b;
+
+  box-shadow:
+    0 0 3px rgba(180, 83, 9, .9),
+    0 0 7px rgba(245, 158, 11, .8),
+    0 0 12px rgba(251, 191, 36, .5);
+
+  animation: sparkleFall linear forwards;
+}
+
+
+@keyframes sparkleFall {
+
+  0% {
+    transform:
+      translate3d(0, -5vh, 0)
+      scale(.5);
+
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  50% {
+    transform:
+      translate3d(
+        calc(var(--drift) * .5),
+        50vh,
+        0
+      )
+      scale(1.4);
+
+    opacity: .8;
+  }
+
+  100% {
+    transform:
+      translate3d(
+        var(--drift),
+        110vh,
+        0
+      )
+      scale(.6);
+
+    opacity: 0;
+  }
+}
+
+
+/* Tôn trọng cài đặt giảm animation của thiết bị */
+
+@media (prefers-reduced-motion: reduce) {
+  #fantasy-particles {
+    display: none;
+  }
+}
