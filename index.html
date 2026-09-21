@@ -10,7 +10,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="is-loading">
+<div class="site-loader" id="siteLoader"><div class="loader-core"><div class="loader-mark"><img src="assets/images/synd-logo.png" alt="Tu Tiên Vực"></div><b>TU TIÊN VỰC</b><span>Đang mở thế giới...</span></div></div>
 <header class="topbar">
   <a class="brand" href="#home"><span class="brand-mark"><img src="assets/images/synd-logo.png" alt="SyndFCO logo"></span><b>TuTiên<span> Vực</span></b></a>
   <nav>
@@ -47,29 +48,9 @@
       
       <div class="panel-head"><h2>Sự kiện nổi bật</h2><a class="event-link" href="#" target="_blank" rel="noopener noreferrer">Xem tất cả →</a></div>
       <div class="event-layout">
-        <div class="event-main three-games">
+        <div class="event-main three-games" id="featuredEvent" role="button" tabindex="0" aria-label="Xem chi tiết sự kiện Chọn thế giới của bạn">
   <img src="assets/images/news/news-1.webp" alt="3 Game">
 
-  <!-- 3 vùng click -->
-  <a class="game-zone game-zone-1"
-     href="https://p.googlelik.com/?p=ii2mue "
-     target="_blank"
-     rel="noopener noreferrer"
-     aria-label="Thần Ma Giáng Thế"></a>
-
-  <a class="game-zone game-zone-2"
-     href="https://t.skeideng.com/zuSlY4.html "
-     target="_blank"
-     rel="noopener noreferrer"
-     aria-label="Phù Sinh Mộng"></a>
-
-  <a class="game-zone game-zone-3"
-     href="https://t.skeideng.com/IHXVo2.html "
-     target="_blank"
-     rel="noopener noreferrer"
-     aria-label="Tân Bình Thức Tỉnh"></a>
-
-  <!-- Chữ nổi giữ nguyên -->
   <div class="event-overlay">
     <span>KHÁM PHÁ</span>
     <h3>Chọn thế giới của bạn</h3>
@@ -131,6 +112,25 @@
 </div>
 </footer>
 
+<div class="featured-event-modal" id="featuredEventModal" aria-hidden="true">
+  <div class="featured-event-card">
+    <button class="featured-event-close" type="button" aria-label="Đóng">×</button>
+    <div class="featured-event-image"><img src="assets/images/news/news-1.webp" alt="Chọn thế giới của bạn"></div>
+    <div class="featured-event-copy">
+      <span>KHÁM PHÁ • TU TIÊN VỰC</span>
+      <h3>Chọn thế giới của bạn</h3>
+      <p>Ba hành trình. Ba thế giới. Chọn tựa game bạn muốn bắt đầu ngay hôm nay.</p>
+      <div class="featured-event-actions">
+        <a href="https://p.googlelik.com/?p=ii2mue" target="_blank" rel="noopener noreferrer"><b>Thần Ma Giáng Thế</b><small>CHƠI NGAY →</small></a>
+        <a href="https://t.skeideng.com/zuSlY4.html" target="_blank" rel="noopener noreferrer"><b>Phù Sinh Mộng</b><small>CHƠI NGAY →</small></a>
+        <a href="https://t.skeideng.com/IHXVo2.html" target="_blank" rel="noopener noreferrer"><b>Tân Binh Thức Tỉnh</b><small>CHƠI NGAY →</small></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="game-detail-modal" id="gameDetailModal" aria-hidden="true"><div class="game-detail-card"><button class="game-detail-close" type="button" aria-label="Đóng">×</button><div class="game-detail-cover"><img id="gameDetailImage" alt="Game"></div><div class="game-detail-copy"><span class="detail-kicker">TU TIÊN VỰC • GAME</span><h3 id="gameDetailTitle"></h3><p id="gameDetailDesc"></p><div class="game-detail-info"><div><small>TRẠNG THÁI / LỊCH MỞ SV</small><b id="gameDetailSchedule"></b></div><div><small>THỂ LOẠI</small><b>Nhập vai • Phiêu lưu</b></div></div><div class="game-detail-actions"><a id="gameDetailPlay" href="#" target="_blank" rel="noopener noreferrer">CHƠI NGAY</a><button type="button" id="gameDetailBack">ĐÓNG</button></div></div></div></div>
+
 <div class="modal"><div class="modal-box"><button class="modal-close">×</button><video controls src="assets/videos/trailer-1.mp4"></video></div></div>
 
 <!-- MULTI-USER CHAT TEST: Supabase Realtime -->
@@ -161,80 +161,5 @@
 
 <!-- Fantasy Falling Effect -->
 <div id="fantasy-particles"></div>
-<script>
-(() => {
-  const container = document.getElementById("fantasy-particles");
 
-  function createParticle() {
-    const particle = document.createElement("span");
-
-    // 65% cánh hoa - 35% hạt sáng
-    const isPetal = Math.random() < 0.65;
-
-    particle.className = isPetal
-      ? "fantasy-particle petal"
-      : "fantasy-particle sparkle";
-
-    // Vị trí xuất hiện
-    particle.style.left = Math.random() * 100 + "vw";
-
-    // Tốc độ rơi 8 - 16 giây
-    particle.style.animationDuration =
-      (8 + Math.random() * 8) + "s";
-
-    // Delay ngẫu nhiên
-    particle.style.animationDelay =
-      (Math.random() * 2) + "s";
-
-    // Độ trong suốt
-    particle.style.opacity =
-      0.35 + Math.random() * 0.55;
-
-    if (isPetal) {
-      // Kích thước cánh hoa
-      const size = 6 + Math.random() * 7;
-
-      particle.style.width = size + "px";
-      particle.style.height = size * 0.65 + "px";
-
-      // Độ lệch khi bay
-      particle.style.setProperty(
-        "--drift",
-        (-70 + Math.random() * 140) + "px"
-      );
-
-      particle.style.setProperty(
-        "--rotate",
-        (180 + Math.random() * 540) + "deg"
-      );
-    } else {
-      // Kích thước hạt sáng
-      const size = 2 + Math.random() * 4;
-
-      particle.style.width = size + "px";
-      particle.style.height = size + "px";
-
-      particle.style.setProperty(
-        "--drift",
-        (-30 + Math.random() * 60) + "px"
-      );
-    }
-
-    container.appendChild(particle);
-
-    // Xóa particle sau khi rơi xong
-    setTimeout(() => {
-      particle.remove();
-    }, 19000);
-  }
-
-  // Tạo ban đầu để không phải chờ
-  for (let i = 0; i < 18; i++) {
-    setTimeout(createParticle, i * 120);
-  }
-
-  // Tạo liên tục
-  setInterval(createParticle, 350);
-})();
-</script>
-</body></html>
+</body></html>  
