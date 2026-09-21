@@ -1,9 +1,0 @@
-SYNDFCO - ADMIN NOTE
-
-1. Supabase > SQL Editor > New query.
-2. Mở file ADD-ADMIN-NOTES.sql, copy toàn bộ và Run 1 lần.
-3. Dùng admin.html như bình thường.
-4. Chọn user -> nhập Tên ghi nhớ / Ghi chú nội bộ -> LƯU.
-5. Ô tìm kiếm Admin tìm được cả tên nhân vật, ID, Zalo, server, tên ghi nhớ và ghi chú.
-
-Tên ghi nhớ và ghi chú chỉ xuất hiện ở giao diện Admin; không được gửi thành tin nhắn cho user.
