@@ -95,8 +95,8 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')document.getElementB
   // Rich hero copy + auto rotate, while keeping the existing trailer mapping.
   const heroContent=[
     {eyebrow:'THẦN MA // TU TIÊN VỰC',title:'THẾ GIỚI MỚI<br><em>ĐANG CHỜ BẠN</em>',desc:'Khám phá những tựa game hấp dẫn và bước vào hành trình phiêu lưu của riêng bạn.'},
-    {eyebrow:'PHÙ SINH // MỘNG CẢNH',title:'NHẬP MỘNG<br><em>PHÁ GIỚI HẠN</em>',desc:'Bước qua tiên cảnh, kết giao đồng đội và viết nên hành trình của riêng bạn.'},
-    {eyebrow:'TÂN BINH // THỨC TỈNH',title:'THỨC TỈNH SỨC MẠNH<br><em>CHINH PHỤC ĐỈNH CAO</em>',desc:'Sẵn sàng chiến đấu, săn thưởng và khám phá những thử thách mới mỗi ngày.'}
+    {eyebrow:'THIÊN CƠ // QUYỀN  ',title:'NHẬP MỘNG<br><em>PHÁ GIỚI HẠN</em>',desc:'Bước qua tiên cảnh, kết giao đồng đội và viết nên hành trình của riêng bạn.'},
+    {eyebrow:'TÂN BINH // THỨC TỈNH ',title:'THẾ GIỚI DIỆU KỲ<br><em>PHIÊU LƯU NGAY</em>',desc:'Sẵn sàng chiến đấu, săn thưởng và khám phá những thử thách mới mỗi ngày.'}
   ];
   const copy=document.querySelector('.hero-copy');
   const oldRender=window.renderHero;
